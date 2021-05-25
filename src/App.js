@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
+import "./App.scss";
+
+import NavBar from "./components/NavBar/NavBar";
+import GalleryPage from "./pages/GalleryPage/GalleryPage";
+import UploadPage from "./pages/UploadPage/UploadPage";
+import QRCodePage from "./pages/QRCodePage/QRCodePage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Router>
+        <Switch>
+          <Route path="/gallery" component={GalleryPage} />
+          <Route path="/upload" component={UploadPage} />
+          <Route path="/qr-code" component={QRCodePage} />
+          <Redirect from="/" to="/gallery" />
+        </Switch>
+        <NavBar />
+      </Router>
     </div>
   );
 }

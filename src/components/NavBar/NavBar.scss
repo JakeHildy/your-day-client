@@ -1,0 +1,24 @@
+@use './../../styles/partials/mixins' as *;
+@use './../../styles/partials/variables' as *;
+@use './../../styles/partials/typography' as *;
+
+.navbar {
+  position: fixed;
+  bottom: 0;
+  background-color: $color-navbar-bg;
+  width: 100%;
+  color: $color-navbar-text;
+  padding: 1rem 0;
+  display: flex;
+
+  &__item {
+    justify-content: center;
+    text-align: center;
+    flex: 1;
+    cursor: pointer;
+
+    &:not(:last-child) {
+      border-right: $separator-line;
+    }
+  }
+}

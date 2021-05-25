@@ -1,0 +1,7 @@
+@use './../../styles/partials/mixins' as *;
+@use './../../styles/partials/variables' as *;
+@use './../../styles/partials/typography' as *;
+
+.gallery-page {
+  padding: 0 $extra-small 10rem $extra-small;
+}

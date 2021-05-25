@@ -1,0 +1,15 @@
+@use './../../styles/partials/mixins' as *;
+@use './../../styles/partials/variables' as *;
+@use './../../styles/partials/typography' as *;
+
+.qr-code-page {
+  padding: $extra-small;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10rem;
+
+  &__code-img {
+    width: 80%;
+  }
+}

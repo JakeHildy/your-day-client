@@ -1,0 +1,38 @@
+@use './../../styles/partials/mixins' as *;
+@use './../../styles/partials/variables' as *;
+@use './../../styles/partials/typography' as *;
+
+.post {
+  width: 100%;
+  padding: $small 0;
+  &:not(:last-child) {
+    border-bottom: $separator-line-post;
+  }
+
+  &__figure {
+  }
+
+  &__img {
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  &__top-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $extra-small 0;
+  }
+
+  &__author {
+    font-size: 2.7rem;
+  }
+  &__time {
+    font-size: 2rem;
+  }
+
+  &__description {
+    font-size: 2.2rem;
+    line-height: 1.3;
+  }
+}
