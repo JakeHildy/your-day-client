@@ -1,5 +1,6 @@
 import React from "react";
 import "./Post.scss";
+import { displayTime } from "./../../utils/dateTime";
 
 function Post({ post }) {
   return (
@@ -9,7 +10,7 @@ function Post({ post }) {
       </figure>
       <div className="post__top-info">
         <h3 className="post__author">{post.author}</h3>
-        <h4 className="post__time">{post.timestamp}</h4>
+        <h4 className="post__time">{displayTime(post.timestamp)}</h4>
       </div>
 
       <p className="post__description">{post.description}</p>

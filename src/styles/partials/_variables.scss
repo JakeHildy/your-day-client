@@ -5,10 +5,21 @@ $color-text: #263238;
 $color-navbar-bg: #37474f;
 $color-navbar-text: #eceff1;
 
+$color-warning: #d18b2d;
+
 ///////////////////////////////
 // SEPARATOR
 $separator-line: 1px solid #eceff1;
 $separator-line-post: 1px solid #37474f;
+
+///////////////////////////////
+// FORMS & INPUT
+$color-label: $color-text;
+$color-background: rgba(#eceff1, 0.4);
+$border-normal: 1px solid #528199;
+$border-selected: 1.2px solid #091d27;
+$border-error: 2px solid $color-warning;
+$border-radius: 9px;
 
 ///////////////////////////////w
 // SPACING INCREMENTS

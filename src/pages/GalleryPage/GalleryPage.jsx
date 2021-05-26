@@ -8,15 +8,16 @@ function GalleryPage() {
     {
       image: "https://your-day.s3.ca-central-1.amazonaws.com/IMG_2651.JPG",
       author: "Karli",
-      timestamp: 1621957828000,
+      timestamp: 1521957828000,
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec ligula erat. Quisque malesuada sapien ex. Quisque pellentesque maximus urna, sed faucibus nisi ornare consequat.",
     },
     {
       image: "https://your-day.s3.ca-central-1.amazonaws.com/IMG_2648.JPG",
       author: "Jake",
-      timestamp: 1621957865000,
-      description: "The good crew",
+      timestamp: 1020957865000,
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec ligula erat. Quisque malesuada sapien ex. Quisque pellentesque maximus urna, sed faucibus nisi ornare consequat.",
     },
   ]);
 

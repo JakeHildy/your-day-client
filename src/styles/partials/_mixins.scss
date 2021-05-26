@@ -1,3 +1,5 @@
+@use './variables' as *;
+
 ///////////////////////////////
 // RESPONSIVE BREAKPOINTS
 
@@ -10,5 +12,32 @@
 @mixin desktop {
   @media (min-width: 1280px) {
     @content;
+  }
+}
+
+@mixin text-input-label {
+  display: block;
+  margin-bottom: $extra-tiny;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $color-label;
+
+  @include tablet {
+    font-size: 1.6rem;
+  }
+}
+
+@mixin text-input {
+  display: block;
+  margin-bottom: $extra-tiny;
+  font-family: inherit;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: $color-text;
+
+  @include tablet {
+    font-size: 2rem;
   }
 }
