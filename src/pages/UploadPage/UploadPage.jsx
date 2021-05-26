@@ -1,40 +1,21 @@
 import React, { useState, useContext, useEffect } from "react";
-import axios from "axios";
 import "./UploadPage.scss";
 import TextArea from "./../../components/TextArea/TextArea";
 import InputField from "./../../components/InputField/InputField";
 import ButtonPrimary from "./../../components/ButtonPrimary/ButtonPrimary";
 import FileUpload from "./../../components/FileUpload/FileUpload";
 import UploadContext from "../../context/uploadContext";
+import uploadPost from "./../../utils/uploadPost";
 
 function UploadPage() {
   const uploadContext = useContext(UploadContext);
   const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
 
+  // Upload Post + Image
   const handleUpload = async (e) => {
     e.preventDefault();
-    const { currentAuthor, currentDescription, currentImage } =
-      uploadContext.currentUpload;
-    console.log(currentAuthor, currentDescription, currentImage);
-
-    const IMAGE_UPLOAD_EP = `${process.env.REACT_APP_BACKEND_URL}/images`;
-    const POST_UPLOAD_EP = `${process.env.REACT_APP_BACKEND_URL}/posts`;
-    const data = new FormData();
-    data.append("file", currentImage);
-
-    try {
-      const imageUploadRes = await axios.post(IMAGE_UPLOAD_EP, data);
-      const imageLocation = imageUploadRes.data.message.Location;
-      const postUploadRes = await axios.post(POST_UPLOAD_EP, {
-        image: imageLocation,
-        author: currentAuthor,
-        description: currentDescription,
-      });
-      console.log(postUploadRes);
-    } catch (err) {
-      console.log(err);
-    }
+    await uploadPost(uploadContext.currentUpload);
   };
 
   // Run once on load:
