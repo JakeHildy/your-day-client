@@ -3,5 +3,24 @@
 @use './../../styles/partials/typography' as *;
 
 .upload-page {
-  padding: 0 $extra-small;
+  padding: 0 $extra-small 10rem $extra-small;
+
+  &__title {
+    display: flex;
+    justify-content: center;
+    padding: $extra-small 0;
+    // border-bottom: $separator-line-form;
+  }
+
+  &__form {
+    padding: $extra-small 0;
+    border-top: $separator-line-form;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__button {
+    width: 50%;
+    align-self: flex-end;
+  }
 }

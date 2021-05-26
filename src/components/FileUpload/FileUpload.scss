@@ -1,0 +1,15 @@
+@use './../../styles/partials/variables' as *;
+@use './../../styles/partials/mixins' as *;
+@use './../../styles/partials/typography' as *;
+
+.file-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $extra-small 0;
+}
+
+.image-thumb {
+  width: 60%;
+  border-radius: $border-radius-image;
+}

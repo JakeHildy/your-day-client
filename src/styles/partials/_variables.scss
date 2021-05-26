@@ -11,6 +11,13 @@ $color-warning: #d18b2d;
 // SEPARATOR
 $separator-line: 1px solid #eceff1;
 $separator-line-post: 1px solid #37474f;
+$separator-line-form: 1px solid #528199;
+
+///////////////////////////////
+// SHADOWS
+$shadow-nav-bar: 0rem 0.1rem 1rem rgba(0, 0, 0, 0.3);
+$shadow-img-gallery: 0rem 0.1rem 1rem rgba(0, 0, 0, 0.3);
+$shadow-message: 0rem 0.1rem 0.2rem rgba(0, 0, 0, 0.5);
 
 ///////////////////////////////
 // FORMS & INPUT
@@ -20,6 +27,19 @@ $border-normal: 1px solid #528199;
 $border-selected: 1.2px solid #091d27;
 $border-error: 2px solid $color-warning;
 $border-radius: 9px;
+
+///////////////////////////////
+// BUTTONS
+$color-button-primary-bg: #7cb342;
+$color-button-primary-border: #33691e;
+$linear-gradient-primary-button: linear-gradient(to bottom, #44a08d, #093637);
+$border-button-primary: 1px solid $color-text;
+$border-radius-button: 9px;
+$shadow-button: 0.1rem 0.3rem 0.5rem rgba(0, 0, 0, 0.6);
+
+///////////////////////////////
+// IMAGES
+$border-radius-image: 5px;
 
 ///////////////////////////////w
 // SPACING INCREMENTS
