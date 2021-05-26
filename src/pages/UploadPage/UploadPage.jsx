@@ -1,18 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./UploadPage.scss";
 import TextArea from "./../../components/TextArea/TextArea";
 import InputField from "./../../components/InputField/InputField";
 import ButtonPrimary from "./../../components/ButtonPrimary/ButtonPrimary";
 import FileUpload from "./../../components/FileUpload/FileUpload";
+import UploadContext from "../../context/uploadContext";
 
 function UploadPage() {
+  const uploadContext = useContext(UploadContext);
+  const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
-  const [name, setName] = useState("");
 
   const handleUpload = (e) => {
     e.preventDefault();
     console.log("Handle upload");
+    const { currentAuthor, currentDescription, currentImage } =
+      uploadContext.currentUpload;
+    console.log(currentAuthor, currentDescription, currentImage);
   };
+
+  // Run once on load:
+  useEffect(() => {
+    setAuthor(uploadContext.currentUpload.currentAuthor);
+    setDescription(uploadContext.currentUpload.currentDescription);
+  }, []);
+
+  // Run when author or description is updated:
+  useEffect(() => {
+    uploadContext.setCurrentUpload({
+      currentAuthor: author,
+      currentDescription: description,
+      currentImage: uploadContext.currentUpload.currentImage,
+    });
+  }, [author, description]);
 
   return (
     <main className="upload-page">
@@ -23,8 +43,8 @@ function UploadPage() {
           name="name"
           label="Name *"
           placeholder="Enter your name..."
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
           error=""
         />
         <TextArea

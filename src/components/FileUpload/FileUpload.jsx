@@ -1,19 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import UploadContext from "../../context/uploadContext";
 import "./FileUpload.scss";
 
 function FileUpload() {
+  const uploadContext = useContext(UploadContext);
   const [file, setFile] = useState("");
 
   function handleUpload(e) {
     setFile(e.target.files[0]);
+    uploadContext.setCurrentUpload({ currentImage: e.target.files[0] });
   }
+
+  useEffect(() => {
+    setFile(uploadContext.currentUpload.currentImage);
+  }, [uploadContext.currentUpload.currentImage]);
 
   return (
     <div className="file-upload">
-      <input type="file" onChange={handleUpload} />
-      <p>File name: {file.name}</p>
+      <input
+        type="file"
+        onChange={handleUpload}
+        className="file-upload__input"
+      />
+      {/* <p>File name: {file.name}</p>
       <p>File type: {file.type}</p>
-      <p>File size: {file.size} bytes</p>
+      <p>File size: {file.size} bytes</p> */}
       {file && <ImageThumb image={file} />}
     </div>
   );
