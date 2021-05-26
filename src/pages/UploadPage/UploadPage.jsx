@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import axios from "axios";
 import "./UploadPage.scss";
 import TextArea from "./../../components/TextArea/TextArea";
 import InputField from "./../../components/InputField/InputField";
@@ -11,12 +12,29 @@ function UploadPage() {
   const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
 
-  const handleUpload = (e) => {
+  const handleUpload = async (e) => {
     e.preventDefault();
-    console.log("Handle upload");
     const { currentAuthor, currentDescription, currentImage } =
       uploadContext.currentUpload;
     console.log(currentAuthor, currentDescription, currentImage);
+
+    const IMAGE_UPLOAD_EP = `${process.env.REACT_APP_BACKEND_URL}/images`;
+    const POST_UPLOAD_EP = `${process.env.REACT_APP_BACKEND_URL}/posts`;
+    const data = new FormData();
+    data.append("file", currentImage);
+
+    try {
+      const imageUploadRes = await axios.post(IMAGE_UPLOAD_EP, data);
+      const imageLocation = imageUploadRes.data.message.Location;
+      const postUploadRes = await axios.post(POST_UPLOAD_EP, {
+        image: imageLocation,
+        author: currentAuthor,
+        description: currentDescription,
+      });
+      console.log(postUploadRes);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   // Run once on load:
