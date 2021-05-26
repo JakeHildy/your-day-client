@@ -1,0 +1,39 @@
+@use './../../styles/partials/variables' as *;
+@use './../../styles/partials/mixins' as *;
+@use './../../styles/partials/typography' as *;
+@use './../../styles/partials/error' as *;
+
+.input-field {
+  margin-bottom: $extra-small;
+
+  &__input {
+    @include text-input;
+    background: $color-background;
+    border: $border-normal;
+    // box-sizing: border-box;
+    border-radius: $border-radius;
+    padding: $tiny $extra-small;
+    width: 100%;
+    height: 3.6rem;
+    outline: none;
+
+    @include tablet {
+      height: 3.8rem;
+      font-size: 1.6rem;
+    }
+
+    &:active,
+    &:focus {
+      border: $border-selected;
+    }
+  }
+
+  &__error {
+    @extend .input-field__input;
+    border: $border-error;
+  }
+
+  &__label {
+    @include text-input-label;
+  }
+}
