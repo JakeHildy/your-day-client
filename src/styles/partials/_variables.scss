@@ -1,6 +1,7 @@
 ///////////////////////////////
 // COLORS
 $color-text: #263238;
+$color-text-light: #5b666b;
 
 $color-navbar-bg: #37474f;
 $color-navbar-text: #eceff1;
@@ -33,6 +34,7 @@ $border-radius: 9px;
 $color-button-primary-bg: #7cb342;
 $color-button-primary-border: #33691e;
 $linear-gradient-primary-button: linear-gradient(to bottom, #44a08d, #093637);
+$linear-gradient-secondary-button: linear-gradient(to bottom, #e0e0e0, #757575);
 $border-button-primary: 1px solid $color-text;
 $border-radius-button: 9px;
 $shadow-button: 0.1rem 0.3rem 0.5rem rgba(0, 0, 0, 0.6);

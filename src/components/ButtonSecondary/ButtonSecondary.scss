@@ -1,0 +1,21 @@
+@use './../../styles/partials/variables' as *;
+@use './../../styles/partials/mixins' as *;
+@use './../../styles/partials/typography' as *;
+
+.button-secondary {
+  border: $border-button-primary;
+  border-radius: $border-radius-button;
+  background-image: $linear-gradient-secondary-button;
+  width: 100%;
+  padding: $tiny $extra-small;
+  font-size: 1.6rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($color-button-primary-bg, 10%);
+    box-shadow: $shadow-button;
+    transform: translateY(-0.1rem);
+  }
+}

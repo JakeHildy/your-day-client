@@ -18,17 +18,20 @@
   }
 
   &__top-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: center;
     padding: $extra-small 0;
   }
 
   &__author {
     font-size: 2.7rem;
+    margin-bottom: $tiny;
   }
   &__time {
-    font-size: 2rem;
+    font-size: 1.4rem;
+    color: $color-text-light;
+    text-transform: uppercase;
   }
 
   &__description {

@@ -3,11 +3,12 @@ import "./UploadPage.scss";
 import TextArea from "./../../components/TextArea/TextArea";
 import InputField from "./../../components/InputField/InputField";
 import ButtonPrimary from "./../../components/ButtonPrimary/ButtonPrimary";
+import ButtonSecondary from "./../../components/ButtonSecondary/ButtonSecondary";
 import FileUpload from "./../../components/FileUpload/FileUpload";
 import UploadContext from "../../context/uploadContext";
 import { uploadPost } from "../../utils/postAPI";
 
-function UploadPage() {
+function UploadPage({ history }) {
   const uploadContext = useContext(UploadContext);
   const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
@@ -16,6 +17,22 @@ function UploadPage() {
   const handleUpload = async (e) => {
     e.preventDefault();
     await uploadPost(uploadContext.currentUpload);
+  };
+
+  const handleCancel = async (e) => {
+    e.preventDefault();
+    console.log("cancel pressed");
+    if (!localStorage.getItem("author")) {
+      localStorage.setItem("author", uploadContext.currentUpload.currentAuthor);
+    }
+    uploadContext.setCurrentUpload({
+      currentAuthor: localStorage.getItem("author")
+        ? localStorage.getItem("author")
+        : "",
+      currentDescription: "",
+      currentImage: "",
+    });
+    history.push("/gallery");
   };
 
   // Run once on load:
@@ -54,8 +71,19 @@ function UploadPage() {
           onChange={(e) => setDescription(e.target.value)}
           error=""
         />
-        <div className="upload-page__button">
-          <ButtonPrimary label="Upload" handleClick={(e) => handleUpload(e)} />
+        <div className="upload-page__buttons">
+          <div className="upload-page__buttons--cancel">
+            <ButtonSecondary
+              label="Cancel"
+              handleClick={(e) => handleCancel(e)}
+            />
+          </div>
+          <div className="upload-page__buttons--upload">
+            <ButtonPrimary
+              label="Upload"
+              handleClick={(e) => handleUpload(e)}
+            />
+          </div>
         </div>
       </form>
     </main>

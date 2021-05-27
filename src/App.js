@@ -17,7 +17,9 @@ import UploadContext from "./context/uploadContext";
 function App() {
   const [currentUpload, setCurrentUpload] = useState({
     currentImage: "",
-    currentAuthor: "",
+    currentAuthor: localStorage.getItem("author")
+      ? localStorage.getItem("author")
+      : "",
     currentDescription: "",
   });
 
