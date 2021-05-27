@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default async function uploadPost(uploadData) {
+export async function uploadPost(uploadData) {
   const { currentAuthor, currentDescription, currentImage } = uploadData;
   const IMAGE_UPLOAD_EP = `${process.env.REACT_APP_BACKEND_URL}/images`;
   const POST_UPLOAD_EP = `${process.env.REACT_APP_BACKEND_URL}/posts`;
@@ -19,4 +19,10 @@ export default async function uploadPost(uploadData) {
   } catch (err) {
     console.log(err);
   }
+}
+
+export async function getPosts(setPosts) {
+  const POSTS_EP = `${process.env.REACT_APP_BACKEND_URL}/posts`;
+  const result = await axios.get(POSTS_EP);
+  setPosts(result.data.data);
 }

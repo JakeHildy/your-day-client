@@ -5,7 +5,7 @@ import InputField from "./../../components/InputField/InputField";
 import ButtonPrimary from "./../../components/ButtonPrimary/ButtonPrimary";
 import FileUpload from "./../../components/FileUpload/FileUpload";
 import UploadContext from "../../context/uploadContext";
-import uploadPost from "./../../utils/uploadPost";
+import { uploadPost } from "../../utils/postAPI";
 
 function UploadPage() {
   const uploadContext = useContext(UploadContext);
