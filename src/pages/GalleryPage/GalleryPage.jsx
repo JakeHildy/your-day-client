@@ -13,9 +13,11 @@ function GalleryPage() {
 
   return (
     <main className="gallery-page">
-      {posts.map((post) => (
-        <Post key={v4()} post={post} />
-      ))}
+      {posts
+        .sort((a, b) => b.timestamp - a.timestamp)
+        .map((post) => (
+          <Post key={v4()} post={post} />
+        ))}
     </main>
   );
 }

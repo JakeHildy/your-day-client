@@ -21,19 +21,18 @@ function UploadPage({ history }) {
     setOverlay(true);
     await uploadPost(uploadContext.currentUpload);
     setOverlay(false);
+    uploadContext.setCurrentUpload({
+      currentAuthor: author,
+      currentDescription: "",
+      currentImage: "",
+    });
     history.push("/gallery");
   };
 
   const handleCancel = async (e) => {
     e.preventDefault();
-    console.log("cancel pressed");
-    if (!localStorage.getItem("author")) {
-      localStorage.setItem("author", uploadContext.currentUpload.currentAuthor);
-    }
     uploadContext.setCurrentUpload({
-      currentAuthor: localStorage.getItem("author")
-        ? localStorage.getItem("author")
-        : "",
+      currentAuthor: author,
       currentDescription: "",
       currentImage: "",
     });

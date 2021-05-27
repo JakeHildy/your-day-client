@@ -8,7 +8,11 @@ function FileUpload() {
 
   function handleUpload(e) {
     setFile(e.target.files[0]);
-    uploadContext.setCurrentUpload({ currentImage: e.target.files[0] });
+    uploadContext.setCurrentUpload({
+      currentAuthor: uploadContext.currentUpload.currentAuthor,
+      currentDescription: uploadContext.currentUpload.currentDescription,
+      currentImage: e.target.files[0],
+    });
   }
 
   useEffect(() => {
