@@ -5,6 +5,7 @@ import InputField from "./../../components/InputField/InputField";
 import ButtonPrimary from "./../../components/ButtonPrimary/ButtonPrimary";
 import ButtonSecondary from "./../../components/ButtonSecondary/ButtonSecondary";
 import FileUpload from "./../../components/FileUpload/FileUpload";
+import PageOverlay from "./../../components/PageOverlay/PageOverlay";
 import UploadContext from "../../context/uploadContext";
 import { uploadPost } from "../../utils/postAPI";
 
@@ -12,11 +13,15 @@ function UploadPage({ history }) {
   const uploadContext = useContext(UploadContext);
   const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
+  const [overlay, setOverlay] = useState(false);
 
   // Upload Post + Image
   const handleUpload = async (e) => {
     e.preventDefault();
+    setOverlay(true);
     await uploadPost(uploadContext.currentUpload);
+    setOverlay(false);
+    history.push("/gallery");
   };
 
   const handleCancel = async (e) => {
@@ -86,6 +91,7 @@ function UploadPage({ history }) {
           </div>
         </div>
       </form>
+      {overlay && <PageOverlay message="Uploading" />}
     </main>
   );
 }

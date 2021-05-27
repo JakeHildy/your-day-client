@@ -40,6 +40,17 @@ $border-radius-button: 9px;
 $shadow-button: 0.1rem 0.3rem 0.5rem rgba(0, 0, 0, 0.6);
 
 ///////////////////////////////
+// PAGES
+$color-1: rgb(58, 97, 134);
+$color-2: rgb(137, 37, 62);
+
+$linear-gradient-page-overlay: linear-gradient(
+  to bottom right,
+  rgba(137, 37, 62, 0.3),
+  rgba(58, 97, 134, 0.8)
+);
+
+///////////////////////////////
 // IMAGES
 $border-radius-image: 5px;
 
