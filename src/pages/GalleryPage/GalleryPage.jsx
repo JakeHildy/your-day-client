@@ -2,15 +2,10 @@ import React, { useState, useEffect } from "react";
 import { v4 } from "uuid";
 import "./GalleryPage.scss";
 import Post from "./../../components/Post/Post";
-import { getPosts } from "./../../utils/postAPI";
 
-function GalleryPage() {
-  const [posts, setPosts] = useState([]);
+// import useInterval from "./../../utils/useInterval";
 
-  useEffect(() => {
-    getPosts(setPosts);
-  }, []);
-
+function GalleryPage({ posts }) {
   return (
     <main className="gallery-page">
       {posts

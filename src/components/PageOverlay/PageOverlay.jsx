@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import useInterval from "./../../utils/useInterval";
 import "./PageOverlay.scss";
 

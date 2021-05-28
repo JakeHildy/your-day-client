@@ -12,8 +12,7 @@ function NavBar() {
 
   useEffect(() => {
     setSelected(window.location.pathname);
-    console.log(window.location.pathname);
-  }, [window.location.pathname]);
+  }, []);
 
   return (
     <div className="navbar">

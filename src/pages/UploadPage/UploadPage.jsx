@@ -9,7 +9,7 @@ import PageOverlay from "./../../components/PageOverlay/PageOverlay";
 import UploadContext from "../../context/uploadContext";
 import { uploadPost } from "../../utils/postAPI";
 
-function UploadPage({ history }) {
+function UploadPage({ history, socket }) {
   const uploadContext = useContext(UploadContext);
   const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
@@ -20,6 +20,7 @@ function UploadPage({ history }) {
     e.preventDefault();
     setOverlay(true);
     await uploadPost(uploadContext.currentUpload);
+    socket.emit("uploadedImage", { data: "image uploaded" });
     setOverlay(false);
     uploadContext.setCurrentUpload({
       currentAuthor: author,
